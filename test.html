@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>瓶子小角度旋轉</title>
+<style>
+  .viewer {
+    width: 100%;          /* 你可以改成需要的寬度 */
+    height: 600px;
+    margin: 50px auto;
+    position: relative;
+    border: 1px dashed #ccc; /* 幫你看到範圍，之後可刪 */
+  }
+  .viewer .frame {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 100%;  
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    pointer-events: none;      /* 讓滑鼠事件打在 .viewer 身上 */
+    opacity: 0;
+    transition: opacity 0.06s linear;
+  }
+</style>
+</head>
+<body>
+
+<div class="viewer" id="viewer">
+  <!-- 把這三個 src 換成你的實際路徑 -->
+  <img src="img/bottle_1.png" class="frame f1">
+  <img src="img/bottle_2.png" class="frame f2">
+  <img src="img/bottle_3.png" class="frame f3">
+  <img src="img/bottle_4.png" class="frame f4">
+  <img src="img/bottle_5.png" class="frame f5">
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const viewer = document.getElementById('viewer');
+  const frames = Array.from(viewer.querySelectorAll('.frame')); // .f1 .f2 .f3...
+
+  if (!viewer || frames.length === 0) return;
+
+  // 先把 CSS 裡的 opacity 動畫關掉＆統一設定
+  frames.forEach(f => {
+    f.style.transition = 'none'; // 關閉 opacity 的動畫
+    f.style.opacity = 1;         // 不再用透明度切換
+    f.style.display = 'none';    // 先全部隱藏
+  });
+
+  let currentIndex = 0;
+  frames[currentIndex].style.display = 'block'; // 一開始顯示第 0 張
+
+  function showFrame(index) {
+    index = Math.max(0, Math.min(frames.length - 1, index));
+    if (index === currentIndex) return;
+    frames[currentIndex].style.display = 'none';
+    frames[index].style.display = 'block';
+    currentIndex = index;
+  }
+
+  function progressToIndex(t) {
+    t = Math.max(0, Math.min(1, t)); // 0~1
+    return Math.round(t * (frames.length - 1));
+  }
+
+  // ---------- 滑鼠位置控制 ----------
+  viewer.addEventListener('mousemove', function (e) {
+    const rect = viewer.getBoundingClientRect();
+    let t = (e.clientX - rect.left) / rect.width; // 0~1
+    const idx = progressToIndex(t);
+    showFrame(idx);
+  });
+
+  viewer.addEventListener('mouseleave', function () {
+    // 滑出去回到中間角度（或你要 0 也可以）
+    const mid = Math.round((frames.length - 1) / 2);
+    showFrame(mid);
+  });
+
+  // ---------- 手機陀螺儀控制 ----------
+  function handleOrientation(e) {
+    if (e.gamma == null) return;
+
+    // gamma 大致是手機左右傾斜角度，單位是度
+    const min = -45; // 最左
+    const max = 45;  // 最右
+    let g = e.gamma;
+    if (g < min) g = min;
+    if (g > max) g = max;
+
+    const t = (g - min) / (max - min); // 映射成 0~1
+    const idx = progressToIndex(t);
+    showFrame(idx);
+  }
+
+  if (window.DeviceOrientationEvent) {
+    // iOS 需要先跟使用者要權限
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      document.body.addEventListener('click', function askPermission() {
+        DeviceOrientationEvent.requestPermission().then(state => {
+          if (state === 'granted') {
+            window.addEventListener('deviceorientation', handleOrientation);
+          }
+        }).catch(console.error);
+        document.body.removeEventListener('click', askPermission);
+      });
+    } else {
+      // Android / 其他裝置直接用
+      window.addEventListener('deviceorientation', handleOrientation);
+    }
+  }
+});
+</script>
+
+</body>
+</html>
