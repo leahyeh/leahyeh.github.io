@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Portfolio</title>
+</head>
+<body>
 
+    <div class="wrap">
+        <aside>
+            
+        </aside>
+
+        <main>
+            <h1>TEST 測試</h1>
+            <h2>TEST 測試</h2>
+            <h3>TEST 測試</h3>
+            <h4>TEST 測試</h4>
+            <h5>TEST 測試</h5>
+            <h6>TEST 測試</h6>
+            <p>TEST 測試TEST 測試TEST 測試TEST 測試TEST 測試TEST 測試TEST 測試</p>
+        </main>
+    </div>
+
+<dialog >
+    <div class="dialog__content">
+        123 TEST<br>
+        4567890
+    </div>
+    <div class="dialog__btm">
+        <button class="close__dialog red">取消</button>
+        <button class="close__dialog">送出</button>
+    </div>
+</dialog>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script>
+
+const dialog = document.querySelector("dialog");
+
+$(".show__dialog").click(function(){
+    dialog.showModal();
+});
+$(".close__dialog").click(function(){
+    dialog.close();
+});
+
+dialog.addEventListener("click", e => {
+  const dialogDimensions = dialog.getBoundingClientRect()
+  if (
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
+  ) {
+    dialog.close()
+  }
+});
+
+</script>
+
+</body>
+</html>

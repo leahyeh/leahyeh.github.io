@@ -1,0 +1,279 @@
+@import '../css/animate.css';
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+TC:wght@100..900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --grey100: #f5f5f5;
+  --grey200: #eeeeee;
+  --grey300: #dddddd;
+  --grey400: #cccccc;
+  --grey500: #aaaaaa;
+  --grey600: #888888;
+  --grey700: #666666;
+  --grey800: #444444;
+  --grey900: #222222;
+  --turquoise: #13b5b1;
+  --red: #df4158;
+  --fontXS: 14px;
+  --fontS: 16px;
+  --fontM: 20px;
+  --fontL: 24px;
+  --fontXL: 30px;
+  --font2L: 36px;
+  --font3L: 44px;
+}
+
+@media (max-width: 1440px) {
+  :root {
+    --fontXS: 0.9722vw;
+    --fontS: 1.1111vw;
+    --fontM: 1.3889vw;
+    --fontL: 1.6667vw;
+    --fontXL: 2.0833vw;
+    --font2L: 2.5vw;
+    --font3L: 3.0556vw;
+  }
+}
+@media (max-width: 821px) {
+  :root {
+    --fontXS: 1.7073vw;
+    --fontS: 1.9512vw;
+    --fontM: 2.439vw;
+    --fontL: 2.9268vw;
+    --fontXL: 3.6585vw;
+    --font2L: 4.3902vw;
+    --font3L: 5.3659vw;
+  }
+}
+@media (max-width: 481px) {
+  :root {
+    --fontXS: 2.9167vw;
+    --fontS: 3.3333vw;
+    --fontM: 4.1667vw;
+    --fontL: 5vw;
+    --fontXL: 6.25vw;
+    --font2L: 7.5vw;
+    --font3L: 9.1667vw;
+  }
+}
+body {
+  font-family: "Montserrat", "Noto Sans TC", sans-serif;
+  background-color: white;
+  color: var(--grey800);
+  font-weight: 400;
+  font-size: var(--fontS);
+  line-height: 1.5;
+  background: url(../images/bg.jpg) center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--turquoise);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: var(--font3L);
+}
+
+h2 {
+  font-size: var(--font2L);
+}
+
+h3 {
+  font-size: var(--fontXL);
+}
+
+h4 {
+  font-size: var(--fontL);
+}
+
+h5 {
+  font-size: var(--fontM);
+}
+
+h6 {
+  font-size: var(--fontS);
+}
+
+.btn,
+button {
+  -webkit-transition: 350ms;
+  transition: 350ms;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  border-radius: 0.5em;
+  background-color: #13b5b1;
+  color: white;
+  font-size: 1em;
+  padding: 0.5em 1.25em calc(0.5em + 4px);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 -4px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 -4px 0 rgba(0, 0, 0, 0.2);
+}
+.btn:hover,
+button:hover {
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+.btn:active,
+button:active {
+  padding: calc(0.5em + 2px) 1.25em 0.5em;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 2px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn.disableed,
+button[disabled] {
+  cursor: default;
+  background-color: var(--grey400);
+  color: var(--grey200);
+  -webkit-box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.1);
+}
+.btn.disableed:hover,
+button[disabled]:hover {
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+.btn.disableed:active,
+button[disabled]:active {
+  padding: 0.5em 1.25em calc(0.5em + 4px);
+  -webkit-box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.1);
+}
+
+button.error,
+.btn.error,
+button.red,
+.btn.red {
+  background-color: var(--red);
+}
+
+.wrap {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 5%;
+  gap: 2.5%;
+}
+.wrap > aside {
+  width: 25%;
+}
+.wrap > main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+@media (max-width: 768px) {
+  .wrap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .wrap > aside {
+    width: 100%;
+  }
+}
+
+dialog {
+  margin: auto;
+  background: white;
+  border: 0;
+  border-radius: 1em;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+  padding: 0;
+}
+
+dialog[open] {
+  -webkit-animation: fadeInUp 0.5s ease-in-out forwards;
+          animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+.dialog__content {
+  padding: 1.5em;
+}
+
+.dialog__btm {
+  font-size: 0.8rem;
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5em;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  border-top: 1px solid var(--grey200);
+}
+
+::-ms-backdrop {
+  background: var(--grey300);
+  opacity: 0.5;
+}
+
+::backdrop {
+  background: var(--grey300);
+  opacity: 0.5;
+}
