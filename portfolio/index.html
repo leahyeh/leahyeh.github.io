@@ -9,58 +9,61 @@
 <body>
 
     <div class="wrap">
-        <aside>
-            
+        <aside class="nav">
+            <nav>
+                <a class="is-current" href="/">Home</a>
+                <a class="" href="/web">Web</a>
+                <a class="" href="/campaign">Campaign</a>
+                <a class="" href="/other">Other</a>
+            </nav>
+            <div class="nav__info">
+                <h4>Leah's Portfolio</h4>
+                <p><a href="mailto:leahyeh@gmail.com">leahyeh@gmail.com</a></p>
+                <p><a href="tel:0916792012">0916 792 012</a></p>
+            </div>
         </aside>
 
         <main>
-            <h1>TEST 測試</h1>
-            <h2>TEST 測試</h2>
-            <h3>TEST 測試</h3>
-            <h4>TEST 測試</h4>
-            <h5>TEST 測試</h5>
-            <h6>TEST 測試</h6>
-            <p>TEST 測試TEST 測試TEST 測試TEST 測試TEST 測試TEST 測試TEST 測試</p>
+            <div class="intro">
+                <h1>I'm Leah</h1>
+                <div class="intro__content">
+                    <p>2007 年開始踏入數位設計領域，累積超過 15 年設計經驗，橫跨品牌網站、活動網站、數位行銷視覺與 UI 設計，並具備 HTML / SCSS / JavaScript 前端製作能力。</p>
+                </div>
+                <div class="intro__skill">
+                    <h3>Skill</h3>
+                    <ul>
+                        <li><b>Frontend</b> — HTML5 / CSS3 / SCSS / JavaScript</li>
+                        <li><b>UI & Motion</b> — Responsive Web / CSS Animation / Interactive UI</li>
+                        <li><b>Tools</b> — Photoshop / Illustrator / Figma / VS Code / GitHub / AI-assisted Workflow</li>
+                    </ul>
+                </div>
+                <div class="intro__exp">
+                    <h3>Experience</h3>
+                    <ul>
+                        <li>2025~2026：傳旭數位科技 / Sr. Web Designer</li>
+                        <li>2020~2025：奕昂科技 / Designer</li>
+                        <li>2016~2020：Freelancer / 早餐店老闆娘</li>
+                        <li>2014~2016：春樹科技 / Art Director</li>
+                        <li>2013~2014：九思設計公司 / Senior Web Designer</li>
+                        <li>2012~2012：宇軒數位媒體(91APP) / Designer</li>
+                        <li>2009~2011：痞客邦 Pixnet / Visual Designer</li>
+                        <li>2008~2009：樂果資訊 / Visual Designer</li>
+                        <li>2007~2008：痞客邦 Pixnet / Visual Designer</li>
+                    </ul>
+                </div>
+            </div>
         </main>
     </div>
+    <footer>
+        收錄之作品皆為過去任職公司或合作廠商的共同創作。<br>
+        作品智慧財產權皆於該工作結束時依照該工作合約內容判定歸屬，此網站存放僅為個人工作紀錄存檔，不為其他商業、販售之行為。
+    </footer>
 
-<dialog >
-    <div class="dialog__content">
-        123 TEST<br>
-        4567890
-    </div>
-    <div class="dialog__btm">
-        <button class="close__dialog red">取消</button>
-        <button class="close__dialog">送出</button>
-    </div>
-</dialog>
 
 
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script>
+<script src="assets/js/main.js"></script>
 
-const dialog = document.querySelector("dialog");
-
-$(".show__dialog").click(function(){
-    dialog.showModal();
-});
-$(".close__dialog").click(function(){
-    dialog.close();
-});
-
-dialog.addEventListener("click", e => {
-  const dialogDimensions = dialog.getBoundingClientRect()
-  if (
-    e.clientX < dialogDimensions.left ||
-    e.clientX > dialogDimensions.right ||
-    e.clientY < dialogDimensions.top ||
-    e.clientY > dialogDimensions.bottom
-  ) {
-    dialog.close()
-  }
-});
-
-</script>
 
 </body>
 </html>
