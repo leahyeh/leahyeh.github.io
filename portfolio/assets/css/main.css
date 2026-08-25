@@ -333,7 +333,7 @@ button {
   border: 0;
   -webkit-box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
           box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
-  width: 96%;
+  min-width: 800px;
   max-width: 1440px;
   padding: 0;
   overflow: hidden;
@@ -376,6 +376,7 @@ button {
 }
 .dialog__content img {
   display: block;
+  margin: 0 auto;
 }
 .dialog__btns {
   display: -webkit-box;
@@ -383,6 +384,14 @@ button {
   display: flex;
   gap: 0.5em;
 }
+@media (max-width: 820px) {
+  .dialog {
+    min-width: auto;
+    width: 100%;
+    max-width: 720px;
+  }
+}
+
 dialog[open] {
   -webkit-animation: fadeInUp 0.5s ease-in-out forwards;
           animation: fadeInUp 0.5s ease-in-out forwards;
@@ -414,10 +423,16 @@ footer {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
+.cards [data-dialog-open] {
+  cursor: pointer;
+  opacity: 0.6;
+}
+.cards [data-dialog-open]:hover {
+  opacity: 1;
+}
 .cards__item {
   -webkit-transition: 500ms;
   transition: 500ms;
-  opacity: 0.6;
 }
 .cards__item img {
   -webkit-transition: 500ms;
@@ -430,10 +445,6 @@ footer {
 }
 .cards__item time {
   color: var(--turquoise);
-}
-.cards__item:hover {
-  cursor: pointer;
-  opacity: 1;
 }
 .cards__item:hover img {
   -webkit-box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
@@ -451,4 +462,9 @@ footer {
   .cards span {
     display: block;
   }
+}
+
+.sec__title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }

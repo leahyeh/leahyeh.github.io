@@ -252,7 +252,7 @@ button {
     background: white;
     border: 0;
     box-shadow: 0 .5em 2em rgba(0,0,0,.1);
-    width: 96%;
+    min-width: 800px;
     max-width: 1440px;
     padding: 0;
     overflow: hidden;
@@ -285,13 +285,17 @@ button {
         overflow: auto;
         img {
             display: block;
+            margin: 0 auto;
         }
     }
     &__btns {
         display: flex;
         gap: .5em;
     }
-    &__close {
+    @media (max-width:820px) {
+        min-width: auto;
+        width: 100%;
+        max-width: 720px;
     }
 }
 dialog[open] {
@@ -316,9 +320,15 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    [data-dialog-open] {
+        cursor: pointer;
+        opacity: .6;
+        &:hover {
+            opacity: 1;
+        }
+    }
     &__item {
         transition: 500ms;
-        opacity: .6;
         img {
             transition: 500ms;
             display: block;
@@ -331,8 +341,6 @@ footer {
             color: var(--turquoise);
         }
         &:hover {
-            cursor: pointer;
-            opacity: 1;
             img {
                 box-shadow: 0 .5em 2em rgba(0,0,0,.1);
             }
@@ -348,4 +356,9 @@ footer {
             display: block;
         }
     }
+}
+
+.sec__title {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
