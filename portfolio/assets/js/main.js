@@ -11,7 +11,7 @@ $("[data-dialog-open]").click(function () {
 // 關閉 Dialog
 $("[data-dialog-close]").click(function () {
     const dialog = $(this).closest("dialog")[0];
-
+    
     if (dialog) {
         dialog.close();
     }
@@ -79,8 +79,11 @@ document.querySelectorAll(".dialog").forEach(dialog => {
         }
 
     });
-
-
+    // Dialog 關閉後，自動切回第一張
+    dialog.addEventListener("close", () => {
+        currentIndex = 0;
+        updateProject();
+    });
     updateProject();
 
 });

@@ -177,6 +177,9 @@ a {
 a:hover {
   opacity: 0.66;
 }
+a.disabled {
+  color: var(--grey600);
+}
 
 img {
   max-width: 100%;
@@ -366,13 +369,17 @@ button {
   background-color: white;
   border-color: var(--grey300);
 }
+.dialog__tool a.disabled,
 .dialog__tool button[disabled] {
   cursor: default;
   opacity: 0.5;
+  border-color: transparent;
 }
 .dialog__content {
   height: calc(96vh - 60px);
-  overflow: auto;
+  overflow-y: auto;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
 }
 .dialog__content img {
   display: block;
@@ -439,6 +446,10 @@ footer {
   transition: 500ms;
   display: block;
   margin-bottom: 0.5em;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: white;
 }
 .cards__item p {
   color: var(--grey900);
