@@ -340,8 +340,8 @@ footer {
             display: block;
             margin-bottom: .5em;
             aspect-ratio: 1/1;
-            object-fit: cover;
-            background-color: white;
+            object-fit: contain;
+            background-color: var(--grey200);
         }
         p {
             color: var(--grey900);
@@ -370,4 +370,10 @@ footer {
 .sec__title {
     margin-top: 2rem;
     margin-bottom: 1rem;
+    small {
+        color: var(--grey500);
+        font-weight: 300;
+        font-size: var(--fontS);
+        display: inline-block;
+    }
 }
