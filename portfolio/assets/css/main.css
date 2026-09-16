@@ -390,6 +390,9 @@ button {
   display: -ms-flexbox;
   display: flex;
   gap: 0.5em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 @media (max-width: 820px) {
   .dialog {
