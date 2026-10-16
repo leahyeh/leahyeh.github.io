@@ -337,7 +337,7 @@ button {
   -webkit-box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
           box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
   min-width: 800px;
-  max-width: 1440px;
+  max-width: 1680px;
   padding: 0;
   overflow: hidden;
   height: 96vh;
@@ -375,8 +375,50 @@ button {
   opacity: 0.5;
   border-color: transparent;
 }
-.dialog__content {
+.dialog__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: calc(96vh - 60px);
+}
+.dialog__info {
+  width: 300px;
+  padding: 1em;
+  background-color: var(--grey200);
+  position: relative;
+}
+.dialog__info::after {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), to(rgba(120, 120, 120, 0.1)));
+  background: linear-gradient(to right, transparent, rgba(120, 120, 120, 0.1));
+}
+.dialog__info h5 {
+  color: var(--turquoise);
+  margin-bottom: 0.5em;
+}
+.dialog__info p {
+  padding-left: 1em;
+  font-size: var(--fontXS);
+  margin: 0.5em auto;
+}
+.dialog__info em {
+  font-size: var(--fontSS);
+  color: var(--grey500);
+}
+.dialog__info--content {
+  color: var(--grey700);
+}
+.dialog__content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 100%;
   overflow-y: auto;
   -ms-scroll-chaining: none;
       overscroll-behavior: contain;
@@ -399,6 +441,22 @@ button {
     min-width: auto;
     width: 100%;
     max-width: 720px;
+  }
+  .dialog__main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .dialog__info {
+    width: 100%;
+    max-width: none;
+  }
+  .dialog__info::after {
+    display: none;
+  }
+  .dialog__content {
+    height: 100%;
   }
 }
 
@@ -440,6 +498,10 @@ footer {
 .cards [data-dialog-open]:hover {
   opacity: 1;
 }
+.cards [data-dialog-open]:hover img {
+  -webkit-box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
+}
 .cards__item {
   -webkit-transition: 500ms;
   transition: 500ms;
@@ -466,10 +528,6 @@ footer {
 .cards__item dl dt {
   min-width: 4em;
   font-weight: 500;
-}
-.cards__item:hover img {
-  -webkit-box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
 }
 .cards__item--text {
   padding-left: 0.5em;

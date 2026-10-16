@@ -256,7 +256,7 @@ button {
     border: 0;
     box-shadow: 0 .5em 2em rgba(0,0,0,.1);
     min-width: 800px;
-    max-width: 1440px;
+    max-width: 1680px;
     padding: 0;
     overflow: hidden;
     height: 96vh;
@@ -285,8 +285,45 @@ button {
             border-color: transparent;
         }
     }
-    &__content {
+    &__main {
+        display: flex;
         height: calc(96vh - 60px);
+    }
+    &__info {
+        width: 300px;
+        padding: 1em;
+        background-color: var(--grey200);
+        position: relative;
+        &::after {
+            content: "";
+            display: block;
+            width: 1em;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: linear-gradient(to right, transparent, rgba(120,120,120,.1));;
+        }
+        h5 {
+            color: var(--turquoise);
+            margin-bottom: .5em;
+        }
+        p {
+            padding-left: 1em;
+            font-size: var(--fontXS);
+            margin: .5em auto;
+        }
+        em {
+            font-size: var(--fontSS);
+            color: var(--grey500);
+        }
+        &--content {
+            color: var(--grey700);
+        }
+    }
+    &__content {
+        flex: 1;
+        height: 100%;
         overflow-y: auto;
         overscroll-behavior: contain;
         img {
@@ -303,6 +340,19 @@ button {
         min-width: auto;
         width: 100%;
         max-width: 720px;
+        &__main {
+            flex-direction: column;
+        }
+        &__info {
+            width: 100%;
+            max-width: none;
+            &::after {
+                display: none;
+            }
+        }
+        &__content {
+            height: 100%;
+        }
     }
 }
 dialog[open] {
@@ -332,6 +382,9 @@ footer {
         opacity: .6;
         &:hover {
             opacity: 1;
+            img {
+                box-shadow: 0 .5em 2em rgba(0,0,0,.1);
+            }
         }
     }
     &__item {
@@ -355,11 +408,6 @@ footer {
             dt {
                 min-width: 4em;
                 font-weight: 500;
-            }
-        }
-        &:hover {
-            img {
-                box-shadow: 0 .5em 2em rgba(0,0,0,.1);
             }
         }
     }
