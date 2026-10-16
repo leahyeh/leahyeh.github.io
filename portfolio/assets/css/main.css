@@ -331,11 +331,12 @@ button {
 }
 
 .dialog {
-  margin: auto;
+  margin-left: 0.75em;
+  margin-right: 0.75em;
   background: white;
   border: 0;
-  -webkit-box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 4em rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 4em rgba(0, 0, 0, 0.1);
   min-width: 800px;
   max-width: 1680px;
   padding: 0;
@@ -368,6 +369,8 @@ button {
 .dialog__tool button:hover {
   background-color: white;
   border-color: var(--grey300);
+  -webkit-box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
 }
 .dialog__tool a.disabled,
 .dialog__tool button[disabled] {
@@ -439,7 +442,7 @@ button {
 @media (max-width: 820px) {
   .dialog {
     min-width: auto;
-    width: 100%;
+    width: calc(100% - 1.5em);
     max-width: 720px;
   }
   .dialog__main {
