@@ -350,6 +350,13 @@ footer {
         time {
             color: var(--turquoise);
         }
+        dl {
+            font-size: var(--fontXS);
+            dt {
+                min-width: 4em;
+                font-weight: 500;
+            }
+        }
         &:hover {
             img {
                 box-shadow: 0 .5em 2em rgba(0,0,0,.1);
