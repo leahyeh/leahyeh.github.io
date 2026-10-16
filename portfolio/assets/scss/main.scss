@@ -251,8 +251,7 @@ button {
 
 
 .dialog {
-    margin-left: .75em;
-    margin-right: .75em;
+    margin: auto;
     background: white;
     border: 0;
     box-shadow: 0 0 4em rgba(0,0,0,.1);
@@ -340,7 +339,7 @@ button {
     }
     @media (max-width:820px) {
         min-width: auto;
-        width: calc(100% - 1.5em);
+        width: 100%;
         max-width: 720px;
         &__main {
             flex-direction: column;
